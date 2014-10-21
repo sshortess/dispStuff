@@ -59,6 +59,7 @@ class dbConnect():
       make connection to data base
       return cursor
       """
+      #self.con = sqlite.connect('test.db')
       self.con = sqlite.connect('ourPictures.db')
       self.cur = self.con.cursor()
       return self.cur
@@ -293,7 +294,14 @@ def dispPics(args,option):
    """
    """
    
-   run(host='192.168.1.17', port=8001, debug=True)
+   myUname = os.uname()
+   if myUname[1] =='Ruth':
+      run(host='192.168.1.63', port=8000, debug=True)
+   elif myUname[1] =='Tina':
+      run( host='192.168.1.17', port=8000, debug=True)
+   else:
+      run(host='localhost', port=8000, debug=True)
+   #run(host='192.168.1.17', port=8001, debug=True)
    #run(host='192.168.1.17', port=8000, debug=True)
 
 
